@@ -8,7 +8,7 @@ const TodoCardContainer = styled.div`
   align-items: center;
   margin: 1rem;
   padding: 1rem;
-  color:#673ab7;
+  color: #673ab7;
   border-radius: 6px;
   box-shadow: 5px 10px 8px grey;
   width: 100%;
@@ -48,7 +48,7 @@ const TodoCardContainer = styled.div`
 const ToDoCard = ({ todo, checkedTodo, deleteTodo }) => {
   return (
     <TodoCardContainer className="todo-container">
-      <Checkbox className='checkbox' checked={todo.is_active} onChange={() => checkedTodo(todo._id, todo.is_active)} />
+      <Checkbox className='checkbox' checked={todo.is_active} onChange={() => checkedTodo(todo)} />
       <div className="todo-details">
         <span>{todo.description}</span>
         <span className="todo-timestamps">
