@@ -1,6 +1,7 @@
 import React from 'react';
-import { AppBar, Toolbar, Button, Menu, MenuItem, IconButton } from '@mui/material';
-import { Menu as MenuIcon } from '@mui/material';
+import { AppBar, Toolbar, Button, IconButton, MenuItem } from '@mui/material';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
@@ -109,14 +110,25 @@ const Header = () => {
     }
   ];
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
   return (
     <HeaderContainer>
       <AppBar position="static">
       <Toolbar className='nav-container'>
         <div className="nav-left-container">
           <div className="nav-left-containers">
-            <IconButton edge="start" color="inherit" aria-label="Menu">
-              <MenuIcon />
+            <IconButton edge="start" color="inherit" aria-label="Menu" open={open} onClick={handleMenuClick}>
+              <MenuIcon open={open}/>
             </IconButton>
             <Link to="/" aria-label="Home">
               <img src={process.env.PUBLIC_URL + '/logo.svg'} className="pic" alt="profile picture" />
@@ -134,7 +146,15 @@ const Header = () => {
             </Button>
           ))}
 
-          <Menu id="default-menu" anchorOrigin={{ vertical: 'top', horizontal: 'right' }} keepMounted>
+          <Menu
+            id="default-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            onClick={handleMenuClick}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+          >
             {menuItemsDefault.map((item, index) => (
               <MenuItem key={index} component={Link} to={item.link}>
                 <i className={item.icon}></i> {item.name}
@@ -145,7 +165,6 @@ const Header = () => {
       </Toolbar>
       </AppBar>
     </HeaderContainer>
-    
   );
 }
 
