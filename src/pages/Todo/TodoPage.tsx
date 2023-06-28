@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Button, Tab, Tabs } from '@mui/material';
 
-import { fetchTodos, updateTodo,  deleteTodo, createTodo} from '../../services/todoService';
+import {
+  useFetchTodos,
+  useCreateTodo,
+  useUpdateTodo,
+  useDeleteTodo
+} from '../../hooks/todo';
 import ToDoCard from './TodoCard';
 import Empty from '../../components/Empty';
 import TextModal from '../../components/TextModal';
@@ -33,6 +38,11 @@ const TodoPage = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
+  const fetchTodos = useFetchTodos();
+  const createTodo = useCreateTodo();
+  const updateTodo = useUpdateTodo();
+  const deleteTodo = useDeleteTodo();
+
   const modalData = {
     title: 'Add new Todo',
     placeholder: 'New Todo',
@@ -45,7 +55,6 @@ const TodoPage = () => {
 
   const setData = async () => {
     const todos = await fetchTodos();
-
     const active: Todo[] = todos.filter((todo: Todo) => {
       return todo.is_active === true;
     });
@@ -56,7 +65,6 @@ const TodoPage = () => {
 
     setActiveTodos(active);
     setInactiveTodos(inactive);
-    
   };
 
   const handleTabChange = (event: any, newValue: React.SetStateAction<number>) => {
@@ -95,7 +103,8 @@ const TodoPage = () => {
 
   const create = async (text: any) => {
     const data = {
-      description: text
+      description: text,
+      is_active: true,
     };
     debugger;
     await createTodo(data);
