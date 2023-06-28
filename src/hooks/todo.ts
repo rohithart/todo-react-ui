@@ -1,10 +1,16 @@
 import axios from 'axios';
+import ConfigContext from "../context/ConfigContext";
+
 import { Todo } from '../models/Todo';
+import { useContext } from 'react';
 
 const useFetchTodos = () => {
+  const config = useContext(ConfigContext);
+  const baseURL = config.API_BASE_URL;
+  
   const fetchTodos = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/todo`);
+      const response = await axios.get(`${baseURL}/todo`);
       return response.data;
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -16,9 +22,12 @@ const useFetchTodos = () => {
 };
 
 const useCreateTodo = () => {
+  const config = useContext(ConfigContext);
+  const baseURL = config.API_BASE_URL;
+
   const createTodo = async (todo: any) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/todo`, todo);
+      const response = await axios.post(`${baseURL}/todo`, todo);
       return response.data;
     } catch (error) {
       console.error('Error creating todo:', error);
@@ -30,9 +39,12 @@ const useCreateTodo = () => {
 };
 
 const useUpdateTodo = () => {
+  const config = useContext(ConfigContext);
+  const baseURL = config.API_BASE_URL;
+
   const updateTodo = async (todo: Todo) => {
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API_BASE_URL}/todo/${todo._id}`, todo);
+      const response = await axios.put(`${baseURL}/todo/${todo._id}`, todo);
       return response.data;
     } catch (error) {
       console.error('Error updating todo', error);
@@ -44,9 +56,12 @@ const useUpdateTodo = () => {
 };
 
 const useDeleteTodo = () => {
+  const config = useContext(ConfigContext);
+  const baseURL = config.API_BASE_URL;
+
   const deleteTodo = async (id: string) => {
     try {
-      const response = await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/todo/${id}`);
+      const response = await axios.delete(`${baseURL}/todo/${id}`);
       return response.data;
     } catch (error) {
       console.error('Error deleting todo', error);

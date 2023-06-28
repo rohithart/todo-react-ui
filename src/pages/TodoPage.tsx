@@ -7,12 +7,12 @@ import {
   useCreateTodo,
   useUpdateTodo,
   useDeleteTodo
-} from '../../hooks/todo';
-import ToDoCard from './TodoCard';
-import Empty from '../../components/Empty';
-import TextModal from '../../components/TextModal';
-import Heading from '../../components/Heading';
-import { Todo } from '../../models/Todo';
+} from '../hooks/todo';
+import ToDoCard from '../components/TodoCard';
+import Empty from '../components/Empty';
+import TextModal from '../components/TextModal';
+import Heading from '../components/Heading';
+import { Todo } from '../models/Todo';
 
 const TodoPageContainer = styled.div`
   .message {
