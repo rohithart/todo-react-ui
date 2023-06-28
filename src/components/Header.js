@@ -127,7 +127,7 @@ const Header = () => {
       <Toolbar className='nav-container'>
         <div className="nav-left-container">
           <div className="nav-left-containers">
-            <IconButton edge="start" color="inherit" aria-label="Menu" open={open} onClick={handleMenuClick}>
+            <IconButton edge="start" color="inherit" aria-label="Menu" open={open}>
               <MenuIcon open={open}/>
             </IconButton>
             <Link to="/" aria-label="Home">
@@ -146,12 +146,15 @@ const Header = () => {
             </Button>
           ))}
 
+          <Button color="inherit" onClick={handleMenuClick} onClose={handleClose}>
+              <i className='fas fa-chevron-down'></i> Other
+          </Button>
+
           <Menu
             id="default-menu"
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            onClick={handleMenuClick}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
           >
