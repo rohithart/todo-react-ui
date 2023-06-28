@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, Toolbar, Button, IconButton, MenuItem } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -110,11 +110,15 @@ const Header = () => {
     },
   ];
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleOpen = (event: any) => {
+    setAnchorEl(event.currentTarget);
   };
 
   return (
@@ -123,9 +127,6 @@ const Header = () => {
         <Toolbar className="nav-container">
           <div className="nav-left-container">
             <div className="nav-left-containers">
-              <IconButton aria-label="Menu">
-                <MenuIcon />
-              </IconButton>
               <Link to="/" aria-label="Home">
                 <img
                   src={process.env.PUBLIC_URL + "/logo.svg"}
@@ -153,7 +154,7 @@ const Header = () => {
               </Button>
             ))}
 
-            <Button>
+            <Button onClick={handleOpen}>
               <i className="fas fa-chevron-down"></i> Other
             </Button>
 
