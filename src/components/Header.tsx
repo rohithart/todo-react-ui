@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, Button, IconButton, MenuItem } from "@mui/material";
+import { AppBar, Toolbar, Button, MenuItem } from "@mui/material";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";

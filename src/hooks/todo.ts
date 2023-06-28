@@ -4,11 +4,11 @@ import ConfigContext from "../context/ConfigContext";
 import { Todo } from "../models/Todo";
 import { useContext } from "react";
 
-const useFetchTodos = () => {
+export const useTodo = () => {
   const config = useContext(ConfigContext);
   const baseURL = config.API_BASE_URL;
 
-  const fetchTodos = async () => {
+  const getAllTodo = async () => {
     try {
       const response = await axios.get(`${baseURL}/todo`);
       return response.data;
@@ -17,13 +17,6 @@ const useFetchTodos = () => {
       throw error;
     }
   };
-
-  return fetchTodos;
-};
-
-const useCreateTodo = () => {
-  const config = useContext(ConfigContext);
-  const baseURL = config.API_BASE_URL;
 
   const createTodo = async (todo: any) => {
     try {
@@ -35,13 +28,6 @@ const useCreateTodo = () => {
     }
   };
 
-  return createTodo;
-};
-
-const useUpdateTodo = () => {
-  const config = useContext(ConfigContext);
-  const baseURL = config.API_BASE_URL;
-
   const updateTodo = async (todo: Todo) => {
     try {
       const response = await axios.put(`${baseURL}/todo/${todo._id}`, todo);
@@ -51,13 +37,6 @@ const useUpdateTodo = () => {
       throw error;
     }
   };
-
-  return updateTodo;
-};
-
-const useDeleteTodo = () => {
-  const config = useContext(ConfigContext);
-  const baseURL = config.API_BASE_URL;
 
   const deleteTodo = async (id: string) => {
     try {
@@ -69,7 +48,5 @@ const useDeleteTodo = () => {
     }
   };
 
-  return deleteTodo;
+  return { getAllTodo, createTodo, updateTodo, deleteTodo };
 };
-
-export { useFetchTodos, useCreateTodo, useUpdateTodo, useDeleteTodo };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Checkbox } from "@mui/material";
 import styled from "styled-components";
+import { Todo } from "../models/Todo";
 
 const TodoCardContainer = styled.div`
   display: flex;
@@ -46,8 +47,8 @@ const TodoCardContainer = styled.div`
 `;
 
 interface ToDoCardProps {
-  todo: any;
-  checkedTodo: (data: any) => void;
+  todo: Todo;
+  checkedTodo: (data: Todo) => void;
   deleteTodo: (id: string) => void;
 }
 
