@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogActions, Button, TextField } from '@mui/material';
+import React, { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogActions,
+  Button,
+  TextField,
+} from "@mui/material";
 
 interface TextModalProps {
   open: boolean;
@@ -16,7 +22,6 @@ function TextModal({ open, handleClose, handleSubmit, data }: TextModalProps) {
   };
 
   const handleDoneClick = () => {
-    debugger;
     handleSubmit(formData.value);
   };
 
@@ -31,7 +36,7 @@ function TextModal({ open, handleClose, handleSubmit, data }: TextModalProps) {
   const handleClear = () => {
     setFormData((prevData: any) => ({
       ...prevData,
-      value: '',
+      value: "",
     }));
   };
 
@@ -48,7 +53,12 @@ function TextModal({ open, handleClose, handleSubmit, data }: TextModalProps) {
             InputProps={{
               endAdornment: formData.value.length > 0 && (
                 <span className="search-icon">
-                  <i className="fas fa-times icon-close" onClick={handleClear} aria-label="Clear" title="Clear"></i>
+                  <i
+                    className="fas fa-times icon-close"
+                    onClick={handleClear}
+                    aria-label="Clear"
+                    title="Clear"
+                  ></i>
                 </span>
               ),
             }}
@@ -65,6 +75,6 @@ function TextModal({ open, handleClose, handleSubmit, data }: TextModalProps) {
       </DialogActions>
     </Dialog>
   );
-};
+}
 
 export default TextModal;

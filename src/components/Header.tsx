@@ -1,10 +1,10 @@
-import React from 'react';
-import { AppBar, Toolbar, Button, IconButton, MenuItem } from '@mui/material';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { AppBar, Toolbar, Button, IconButton, MenuItem } from "@mui/material";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const HeaderContainer = styled.div`
   .nav-container {
@@ -76,38 +76,38 @@ const HeaderContainer = styled.div`
 const Header = () => {
   const menuItems = [
     {
-      link: '/',
-      name: 'Home',
-      icon: 'fas fa-home'
+      link: "/",
+      name: "Home",
+      icon: "fas fa-home",
     },
     {
-      link: '/todo',
-      name: 'Todo',
-      icon: 'fas fa-check'
+      link: "/todo",
+      name: "Todo",
+      icon: "fas fa-check",
     },
     {
-      link: '/404',
-      name: 'Not found page',
-      icon: 'fas fa-exclamation'
+      link: "/404",
+      name: "Not found page",
+      icon: "fas fa-exclamation",
     },
   ];
 
   const menuItemsDefault = [
     {
-      link: '/',
-      name: 'FAQ',
-      icon: 'far fa-question-circle'
+      link: "/",
+      name: "FAQ",
+      icon: "far fa-question-circle",
     },
     {
-      link: '/',
-      name: 'T&C',
-      icon: 'far fa-list-alt'
+      link: "/",
+      name: "T&C",
+      icon: "far fa-list-alt",
     },
     {
-      link: '/',
-      name: 'Privacy policy',
-      icon: 'fas fa-user-secret'
-    }
+      link: "/",
+      name: "Privacy policy",
+      icon: "fas fa-user-secret",
+    },
   ];
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -117,58 +117,65 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const handleMenuClick = (event: { currentTarget: React.SetStateAction<null>; }) => {
-    setAnchorEl(event.currentTarget);
-  };
-
   return (
     <HeaderContainer>
       <AppBar position="static">
-      <Toolbar className='nav-container'>
-        <div className="nav-left-container">
-          <div className="nav-left-containers">
-            <IconButton aria-label="Menu">
-              <MenuIcon />
-            </IconButton>
-            <Link to="/" aria-label="Home">
-              <img src={process.env.PUBLIC_URL + '/logo.svg'} className="pic" alt="profile picture" />
-            </Link>
-            <div className="header-message">
-              <Link to="/" aria-label="Home" className="app-name">ToDo App</Link>
+        <Toolbar className="nav-container">
+          <div className="nav-left-container">
+            <div className="nav-left-containers">
+              <IconButton aria-label="Menu">
+                <MenuIcon />
+              </IconButton>
+              <Link to="/" aria-label="Home">
+                <img
+                  src={process.env.PUBLIC_URL + "/logo.svg"}
+                  className="pic"
+                  alt="profile picture"
+                />
+              </Link>
+              <div className="header-message">
+                <Link to="/" aria-label="Home" className="app-name">
+                  ToDo App
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="menu-container">
-          {menuItems.map((item, index) => (
-            <Button key={index} component={Link} to={item.link} color="inherit">
-              <i className={item.icon}></i> {item.name}
-            </Button>
-          ))}
-
-          <Button>
-              <i className='fas fa-chevron-down'></i> Other
-          </Button>
-
-          <Menu
-            id="default-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-          >
-            {menuItemsDefault.map((item, index) => (
-              <MenuItem key={index} component={Link} to={item.link}>
+          <div className="menu-container">
+            {menuItems.map((item, index) => (
+              <Button
+                key={index}
+                component={Link}
+                to={item.link}
+                color="inherit"
+              >
                 <i className={item.icon}></i> {item.name}
-              </MenuItem>
+              </Button>
             ))}
-          </Menu>
-        </div>
-      </Toolbar>
+
+            <Button>
+              <i className="fas fa-chevron-down"></i> Other
+            </Button>
+
+            <Menu
+              id="default-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
+            >
+              {menuItemsDefault.map((item, index) => (
+                <MenuItem key={index} component={Link} to={item.link}>
+                  <i className={item.icon}></i> {item.name}
+                </MenuItem>
+              ))}
+            </Menu>
+          </div>
+        </Toolbar>
       </AppBar>
     </HeaderContainer>
   );
-}
+};
 
 export default Header;

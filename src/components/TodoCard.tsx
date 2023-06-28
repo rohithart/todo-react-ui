@@ -1,6 +1,6 @@
-import React from 'react';
-import { Checkbox } from '@mui/material';
-import styled from 'styled-components';
+import React from "react";
+import { Checkbox } from "@mui/material";
+import styled from "styled-components";
 
 const TodoCardContainer = styled.div`
   display: flex;
@@ -27,19 +27,19 @@ const TodoCardContainer = styled.div`
       margin-left: 1rem;
       cursor: pointer;
       float: right;
-  
-      @include screen('tablet-landscape') {
+
+      @include screen("tablet-landscape") {
         float: right;
       }
     }
-  
+
     .todo-timestamps {
       display: flex;
       flex-direction: column;
-      align-items:flex-end;
+      align-items: flex-end;
     }
 
-    @include screen('tablet-landscape') {
+    @include screen("tablet-landscape") {
       flex-direction: column;
     }
   }
@@ -54,21 +54,32 @@ interface ToDoCardProps {
 function ToDoCard({ todo, checkedTodo, deleteTodo }: ToDoCardProps) {
   return (
     <TodoCardContainer className="todo-container">
-      <Checkbox className='checkbox' checked={todo.is_active} onChange={() => checkedTodo(todo)} />
+      <Checkbox
+        className="checkbox"
+        checked={todo.is_active}
+        onChange={() => checkedTodo(todo)}
+      />
       <div className="todo-details">
         <span>{todo.description}</span>
         <span className="todo-timestamps">
           <span>
-            <i className="far fa-clock" aria-label="Last updated at" title="Last updated at"></i>
+            <i
+              className="far fa-clock"
+              aria-label="Last updated at"
+              title="Last updated at"
+            ></i>
             {todo.updatedAt}
           </span>
           {!todo.is_active && (
-            <i className="far fa-trash-alt delete-todo" onClick={() => deleteTodo(todo._id)}></i>
+            <i
+              className="far fa-trash-alt delete-todo"
+              onClick={() => deleteTodo(todo._id)}
+            ></i>
           )}
         </span>
       </div>
     </TodoCardContainer>
   );
-};
+}
 
 export default ToDoCard;

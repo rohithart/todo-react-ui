@@ -13,7 +13,6 @@ export const loadConfig = async () => {
   return config;
 };
 
-
 export const ConfigContext = createContext<Config>({
   ENVIRONMENT: "",
   API_BASE_URL: "",

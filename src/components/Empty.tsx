@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
 const fadeInOut = keyframes`
   0% {
@@ -37,10 +37,10 @@ const EmptyBannerContainer = styled.div`
     flex-direction: column;
   }
 
-  .message  {
+  .message {
     color: #673ab7;
     font-weight: bold;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
   .message1 {
@@ -48,7 +48,7 @@ const EmptyBannerContainer = styled.div`
   }
 
   .message2 {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 
   .fade-container {
@@ -104,6 +104,6 @@ function Empty({ icon, iconNext, message1, message2 }: EmptyProps) {
       </div>
     </EmptyBannerContainer>
   );
-};
+}
 
 export default Empty;

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const HeadingContainer = styled.div`
   .heading h1 {
@@ -8,7 +8,7 @@ const HeadingContainer = styled.div`
     font-weight: 500;
     letter-spacing: 0;
     line-height: 1.5em;
-    padding: 1rem .5rem 1rem 2rem;
+    padding: 1rem 0.5rem 1rem 2rem;
     position: relative;
   }
 
@@ -45,6 +45,6 @@ function Heading({ message }: HeadingProps) {
       </div>
     </HeadingContainer>
   );
-};
+}
 
 export default Heading;
