@@ -1,17 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-
 import Heading from "../components/Heading";
-
-const HomePageContainer = styled.div`
-  .message {
-    color: #673ab7;
-  }
-`;
 
 const HomePage = () => {
   return (
-    <HomePageContainer>
+    <div>
       <Heading message="Welcome to ToDo App." />
       <div className="row">
         <div className="col-md-offset-4 col-md-4">
@@ -23,7 +14,7 @@ const HomePage = () => {
           </h2>
         </div>
       </div>
-    </HomePageContainer>
+    </div>
   );
 };
 

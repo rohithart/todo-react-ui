@@ -1,0 +1,9 @@
+@import "src/styles/mixins";
+
+body {
+  color: $red;
+}
+
+.app-container {
+  min-height: 50rem;
+}

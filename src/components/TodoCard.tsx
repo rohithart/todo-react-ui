@@ -1,51 +1,6 @@
-import React from "react";
 import { Checkbox } from "@mui/material";
-import styled from "styled-components";
 import { Todo } from "../models/Todo";
-
-const TodoCardContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 1rem;
-  padding: 1rem;
-  color: #673ab7;
-  border-radius: 6px;
-  box-shadow: 5px 10px 8px grey;
-  width: 100%;
-
-  mat-checkbox {
-    margin-right: 1rem;
-  }
-
-  .todo-details {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    .delete-todo {
-      color: red;
-      margin-left: 1rem;
-      cursor: pointer;
-      float: right;
-
-      @include screen("tablet-landscape") {
-        float: right;
-      }
-    }
-
-    .todo-timestamps {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
-    @include screen("tablet-landscape") {
-      flex-direction: column;
-    }
-  }
-`;
-
+import "./TodoCard.scss";
 interface ToDoCardProps {
   todo: Todo;
   checkedTodo: (data: Todo) => void;
@@ -54,7 +9,7 @@ interface ToDoCardProps {
 
 function ToDoCard({ todo, checkedTodo, deleteTodo }: ToDoCardProps) {
   return (
-    <TodoCardContainer className="todo-container">
+    <div className="todo-container">
       <Checkbox
         className="checkbox"
         checked={todo.is_active}
@@ -79,7 +34,7 @@ function ToDoCard({ todo, checkedTodo, deleteTodo }: ToDoCardProps) {
           )}
         </span>
       </div>
-    </TodoCardContainer>
+    </div>
   );
 }
 

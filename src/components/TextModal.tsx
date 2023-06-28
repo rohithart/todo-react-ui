@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -6,6 +6,7 @@ import {
   Button,
   TextField,
 } from "@mui/material";
+import "./TextModal.scss";
 
 interface TextModalProps {
   open: boolean;

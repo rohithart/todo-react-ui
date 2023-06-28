@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import { Button, Tab, Tabs } from "@mui/material";
 
 import { useTodo } from "../hooks/todo";
@@ -8,24 +7,7 @@ import Empty from "../components/Empty";
 import TextModal from "../components/TextModal";
 import Heading from "../components/Heading";
 import { Todo } from "../models/Todo";
-
-const TodoPageContainer = styled.div`
-  .message {
-    color: #673ab7;
-  }
-
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .tab-container {
-    display: flex;
-    justify-content: center;
-  }
-`;
+import "./TodoPage.scss";
 
 const TodoPage = () => {
   const [activeTodos, setActiveTodos] = useState<Todo[]>([]);
@@ -110,7 +92,7 @@ const TodoPage = () => {
   };
 
   return (
-    <TodoPageContainer>
+    <div>
       <Heading message="All your todos" />
       <div className="actions">
         <Button color="secondary" variant="contained" onClick={openModal}>
@@ -170,7 +152,7 @@ const TodoPage = () => {
           data={modalData}
         />
       )}
-    </TodoPageContainer>
+    </div>
   );
 };
 

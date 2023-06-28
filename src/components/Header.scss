@@ -1,0 +1,66 @@
+@import "src/styles/mixins";
+
+.nav-container {
+  background: white;
+  color: $primary--color;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-left-container {
+  display: flex;
+  justify-content: flex-start;
+
+  @media screen and (min-width: 768px) and (orientation: landscape) {
+    flex-direction: column;
+  }
+}
+
+.nav-left-containers {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.header-message {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  a {
+    color: $primary--color;
+    text-decoration: none;
+  }
+  a:visited {
+    color: $primary--color;
+  }
+  a:hover {
+    color: $primary--color;
+  }
+  a:active {
+    color: $primary--color;
+  }
+}
+
+.pic {
+  height: 50px;
+  width: 50px;
+  margin-right: 1rem;
+}
+
+.app-name {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.nav-bar {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  @media screen and (min-width: 768px) and (orientation: landscape) {
+    height: 7rem;
+  }
+}
