@@ -7,6 +7,7 @@ import ToDoCard from './TodoCard';
 import Empty from '../../components/Empty';
 import TextModal from '../../components/TextModal';
 import Heading from '../../components/Heading';
+import { Todo } from '../../models/Todo';
 
 const TodoPageContainer = styled.div`
   .message {
@@ -27,8 +28,8 @@ const TodoPageContainer = styled.div`
 `;
 
 const TodoPage = () => {
-  const [activeTodos, setActiveTodos] = useState([]);
-  const [inactiveTodos, setInactiveTodos] = useState([]);
+  const [activeTodos, setActiveTodos] = useState<Todo[]>([]);
+  const [inactiveTodos, setInactiveTodos] = useState<Todo[]>([]);
   const [activeTab, setActiveTab] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -45,11 +46,11 @@ const TodoPage = () => {
   const setData = async () => {
     const todos = await fetchTodos();
 
-    const active = todos.filter(todo => {
+    const active: Todo[] = todos.filter((todo: Todo) => {
       return todo.is_active === true;
     });
 
-    const inactive = todos.filter(todo => {
+    const inactive: Todo[] = todos.filter((todo: Todo) => {
       return todo.is_active === false;
     });
 
@@ -58,7 +59,7 @@ const TodoPage = () => {
     
   };
 
-  const handleTabChange = (event, newValue) => {
+  const handleTabChange = (event: any, newValue: React.SetStateAction<number>) => {
     setActiveTab(newValue);
   };
 
@@ -70,29 +71,29 @@ const TodoPage = () => {
     setModalOpen(false);
   };
 
-  const handleSubmit = (text) => {
+  const handleSubmit = (text: any) => {
     create(text);
     closeModal();
   };
 
-  const markActive = async (todo) => {
+  const markActive = async (todo: Todo) => {
     todo.is_active = true;
     await updateTodo(todo);
     updateTodoList();
   }
 
-  const markInActive = async (todo) => {
+  const markInActive = async (todo: Todo) => {
     todo.is_active = false;
     await updateTodo(todo);
     updateTodoList();
   }
 
-  const deleteThisTodo = async (todo) => {
+  const deleteThisTodo = async (todo: any) => {
     await deleteTodo(todo);
     updateTodoList();
   }
 
-  const create = async (text) => {
+  const create = async (text: any) => {
     const data = {
       description: text
     };

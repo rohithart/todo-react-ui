@@ -84,7 +84,14 @@ const EmptyBannerContainer = styled.div`
   }
 `;
 
-const Empty = ({ icon, iconNext, message1, message2 }) => {
+interface EmptyProps {
+  icon: string;
+  iconNext: string;
+  message1: string;
+  message2: string;
+}
+
+function Empty({ icon, iconNext, message1, message2 }: EmptyProps) {
   return (
     <EmptyBannerContainer>
       <div className="empty-banner">

@@ -117,7 +117,7 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const handleMenuClick = (event) => {
+  const handleMenuClick = (event: { currentTarget: React.SetStateAction<null>; }) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -127,8 +127,8 @@ const Header = () => {
       <Toolbar className='nav-container'>
         <div className="nav-left-container">
           <div className="nav-left-containers">
-            <IconButton edge="start" color="inherit" aria-label="Menu" open={open}>
-              <MenuIcon open={open}/>
+            <IconButton aria-label="Menu">
+              <MenuIcon />
             </IconButton>
             <Link to="/" aria-label="Home">
               <img src={process.env.PUBLIC_URL + '/logo.svg'} className="pic" alt="profile picture" />
@@ -146,7 +146,7 @@ const Header = () => {
             </Button>
           ))}
 
-          <Button color="inherit" onClick={handleMenuClick} onClose={handleClose}>
+          <Button>
               <i className='fas fa-chevron-down'></i> Other
           </Button>
 

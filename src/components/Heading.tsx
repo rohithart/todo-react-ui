@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeadingContainer = styled.div`
-  .heading h1{
+  .heading h1 {
     color: #673ab7;
     font-size: 1.5rem;
     font-weight: 500;
@@ -11,6 +11,7 @@ const HeadingContainer = styled.div`
     padding: 1rem .5rem 1rem 2rem;
     position: relative;
   }
+
   .heading h1:before {
     content: "";
     position: absolute;
@@ -20,6 +21,7 @@ const HeadingContainer = styled.div`
     width: 5rem;
     background-color: #673ab7;
   }
+
   .heading h1:after {
     content: "";
     position: absolute;
@@ -31,12 +33,16 @@ const HeadingContainer = styled.div`
   }
 `;
 
-const Heading = ({message}) => {
+interface HeadingProps {
+  message: string;
+}
+
+function Heading({ message }: HeadingProps) {
   return (
     <HeadingContainer>
-        <div className="heading">
-          <h1>{message} </h1>
-        </div>
+      <div className="heading">
+        <h1>{message}</h1>
+      </div>
     </HeadingContainer>
   );
 };

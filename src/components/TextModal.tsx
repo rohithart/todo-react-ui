@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogActions, Button, TextField } from '@mui/material';
 
-const TextModal = ({ open, handleClose, handleSubmit, data }) => {
+interface TextModalProps {
+  open: boolean;
+  handleClose: () => void;
+  handleSubmit: (message: string) => void;
+  data: any;
+}
+
+function TextModal({ open, handleClose, handleSubmit, data }: TextModalProps) {
   const [formData, setFormData] = useState(data);
 
   const handleCancel = () => {
@@ -13,16 +20,16 @@ const TextModal = ({ open, handleClose, handleSubmit, data }) => {
     handleSubmit(formData.value);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     const { value } = e.target;
-    setFormData((prevData) => ({
+    setFormData((prevData: any) => ({
       ...prevData,
       value: value,
     }));
   };
 
   const handleClear = () => {
-    setFormData((prevData) => ({
+    setFormData((prevData: any) => ({
       ...prevData,
       value: '',
     }));

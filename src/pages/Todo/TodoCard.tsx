@@ -45,7 +45,13 @@ const TodoCardContainer = styled.div`
   }
 `;
 
-const ToDoCard = ({ todo, checkedTodo, deleteTodo }) => {
+interface ToDoCardProps {
+  todo: any;
+  checkedTodo: (data: any) => void;
+  deleteTodo: (id: string) => void;
+}
+
+function ToDoCard({ todo, checkedTodo, deleteTodo }: ToDoCardProps) {
   return (
     <TodoCardContainer className="todo-container">
       <Checkbox className='checkbox' checked={todo.is_active} onChange={() => checkedTodo(todo)} />

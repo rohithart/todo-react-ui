@@ -88,7 +88,7 @@ const Footer = () => {
             <a href="https://rohithpoyyeri.com/" target="_blank" rel="nofollow noopener noreferrer" className="footerBanner social-links" aria-label="rohithpoyyeri.com">
               <i className="fas fa-globe"></i>
             </a>
-            <a href="https://www.linkedin.com/in/rohithpoyyeri/" aria-label="LinkedIn" target="_blank" rel="nofollow noopener noreferrer" className="footerBanner social-links" aria-label="linkedin">
+            <a href="https://www.linkedin.com/in/rohithpoyyeri/" aria-label="LinkedIn" target="_blank" rel="nofollow noopener noreferrer" className="footerBanner social-links">
               <i className="fab fa-linkedin"></i>
             </a>
           </div>
