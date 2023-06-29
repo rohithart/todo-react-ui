@@ -13,7 +13,7 @@ const NotFoundPage = () => {
             The page that you are looking for is not available. Please navigate
             to the home page.
           </h2>
-          <Button component={Link} to="/" color="inherit" variant="contained">
+          <Button component={Link} to="/" color="secondary" variant="contained">
             Home
           </Button>
         </div>

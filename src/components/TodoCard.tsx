@@ -12,6 +12,7 @@ function ToDoCard({ todo, checkedTodo, deleteTodo }: ToDoCardProps) {
     <div className="todo-container">
       <Checkbox
         className="checkbox"
+        color="secondary"
         checked={todo.is_active}
         onChange={() => checkedTodo(todo)}
       />
