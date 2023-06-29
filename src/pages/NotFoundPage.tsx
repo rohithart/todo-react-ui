@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 
-import Heading from "../components/Heading";
+import Heading from "../components/Heading/Heading";
 
 const NotFoundPage = () => {
   return (

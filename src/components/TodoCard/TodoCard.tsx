@@ -1,5 +1,5 @@
 import { Checkbox } from "@mui/material";
-import { Todo } from "../models/Todo";
+import { Todo } from "../../models/Todo";
 import "./TodoCard.scss";
 interface ToDoCardProps {
   todo: Todo;

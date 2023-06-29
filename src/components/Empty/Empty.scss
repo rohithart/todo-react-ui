@@ -3,38 +3,36 @@
 .empty-banner {
   display: flex;
   flex-direction: column;
-}
 
-.message  {
-  color: $primary--color;
-  font-weight: bold;
-  margin-bottom: .5rem;
-}
+  .fade-container {
+    height: 6rem;
+    width: 100%;
+    position: relative;
 
-.message1 {
-  @extend .message;
-  font-size: 1rem;
-}
+    .icon-banner {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      color: $primary--color;
+      font-size: 5rem;
+    }
+  }
 
-.message2 {
-  @extend .message;
-  font-size: .75rem;
-}
+  .message {
+    color: $primary--color;
+    font-weight: bold;
+    margin-bottom: .5rem;
 
-.fade-container {
-  height: 6rem;
-  width: 100%;
-  position: relative;
-}
+    &.message1 {
+      font-size: 1rem;
+    }
 
-.icon-banner {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  color: $primary--color;
-  font-size: 5rem;
+    &.message2 {
+      font-size: .75rem;
+    }
+  }
 }
 
 @keyframes fadeInOut {

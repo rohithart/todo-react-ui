@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Button, Tab, Tabs } from "@mui/material";
 
-import { useTodo } from "../hooks/todo";
-import ToDoCard from "../components/TodoCard";
-import Empty from "../components/Empty";
-import TextModal from "../components/TextModal";
-import Heading from "../components/Heading";
-import { Todo } from "../models/Todo";
+import { useTodo } from "../../hooks/todo";
+import ToDoCard from "../../components/TodoCard/TodoCard";
+import Empty from "../../components/Empty/Empty";
+import TextModal from "../../components/TextModal/TextModal";
+import Heading from "../../components/Heading/Heading";
+import { Todo } from "../../models/Todo";
 import "./TodoPage.scss";
 
 const TodoPage = () => {
